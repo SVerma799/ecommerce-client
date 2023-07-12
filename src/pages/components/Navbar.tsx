@@ -6,6 +6,12 @@ import Link from "next/link";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState("");
+
+  const handleClick = (item: string) => {
+    setActiveItem(item);
+  };
+
   return (
     <nav className="bg-white dark:bg-gray-950">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -50,8 +56,13 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 pl-3 pr-4 text-white bg-indigo-800 rounded md:bg-transparent md:text-indigo-700 md:p-0 dark:text-white md:dark:text-indigo-500"
+                className={cn({
+                  "block py-2 pl-3 pr-4 text-white rounded md:bg-transparent  md:p-0 dark:text-white ":
+                    true,
+                  "text-indigo-500": activeItem === "home",
+                })}
                 aria-current="page"
+                onClick={() => handleClick("home")}
               >
                 Home
               </a>
@@ -61,7 +72,12 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:hover:text-indigo-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                className={cn({
+                  "block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0 dark:text-white ":
+                    true,
+                  "text-indigo-500": activeItem === "products",
+                })}
+                onClick={() => handleClick("products")}
               >
                 Products
               </a>
@@ -70,7 +86,12 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:hover:text-indigo-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                className={cn({
+                  "block py-2 pl-3 pr-4 text-white rounded md:bg-transparent  md:p-0 dark:text-white ":
+                    true,
+                  "text-indigo-500": activeItem === "categories",
+                })}
+                onClick={() => handleClick("categories")}
               >
                 Categories
               </a>
