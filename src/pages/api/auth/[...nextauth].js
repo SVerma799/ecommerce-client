@@ -1,17 +1,17 @@
-import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
 
 export default NextAuth({
   // Configure one or more authentication providers
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
     // ...add more providers here
   ],
   pages: {
     signIn: "/auth/signin",
   },
-  adapters: MongoDBAdapter(),
   // A database is optional, but required to persist accounts in a database
 });

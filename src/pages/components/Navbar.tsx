@@ -44,9 +44,9 @@ const Navbar = () => {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M1 1h15M1 7h15M1 13h15"
             />
           </svg>
@@ -100,38 +100,23 @@ const Navbar = () => {
               </a>
             </li>
             {/* Login */}
+            {/* If not logged in Create a sign In Link element which refs to the the auth the SignIn */}
             <li>
-              <button
-                id="dropdownNavbarLink"
-                data-dropdown-toggle="dropdownNavbar"
-                className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-indigo-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                <BiUserCircle className="h-7 w-7" />
-              </button>
-              <div
-                id="dropdownNavbar"
+              <Link
+                href="/auth/signin"
                 className={cn({
-                  hidden: !isOpen,
-                  "z-1000000 absolute mt-5  font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-36 dark:bg-gray-900 dark:divide-gray-600":
+                  "block py-2 pl-3 pr-4 text-white rounded md:bg-transparent  md:p-0 dark:text-white  md:hover:text-indigo-700":
                     true,
+                  "sm:text-indigo-500 md:hover:text-white":
+                    activeItem === "login",
                 })}
+                onClick={() => handleClick("login")}
               >
-                <ul
-                  className="py-2 text-sm text-gray-700 dark:text-gray-400"
-                  aria-labelledby="dropdownLargeButton"
-                >
-                  <li>
-                    <Link
-                      href="auth/signin"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-900 dark:hover:text-white"
-                    >
-                      SignIn
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+                Sign In
+              </Link>
             </li>
+
+            {/*  If Logged in use the user profile picture with dropdown on Sign out and Profile option */}
           </ul>
         </div>
       </div>
@@ -140,3 +125,43 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+{
+  /* <li>
+<Link
+  href="#"
+  id="dropdownNavbarLink"
+  data-dropdown-toggle="dropdownNavbar"
+  className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-indigo-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+>
+  <BiUserCircle className="h-7 w-7" />
+</Link>
+{/* To  be used as a drop down item. */
+}
+{
+  /* <div
+  id="dropdownNavbar"
+  className={cn({
+    "z-1000000 absolute mt-5  font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-36 dark:bg-gray-900 dark:divide-gray-600":
+      true,
+    hidden: !isOpen,
+  })}
+>
+  <ul
+    className="py-2 text-sm text-gray-700 dark:text-gray-400"
+    aria-labelledby="dropdownLargeButton"
+  >
+    <li>
+      <Link
+        href="auth/signin"
+        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-900 dark:hover:text-white"
+      >
+        SignIn
+      </Link>
+    </li>
+  </ul>
+</div> 
+</li>
+
+</div>  */
+}
