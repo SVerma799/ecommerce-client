@@ -13,8 +13,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white dark:bg-gray-950">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="bg-white dark:bg-gray-950 border-b-2 border-gray-700 mb-2">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4  ">
         <Link href="/" className="flex items-center">
           <Image
             src="https://flowbite.com/docs/images/logo.svg"
@@ -54,42 +54,45 @@ const Navbar = () => {
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-950 md:dark:bg-gray-950 dark:border-gray-790">
             <li>
-              <a
-                href="#"
+              <Link
+                href="/"
                 className={cn({
-                  "block py-2 pl-3 pr-4 text-white rounded md:bg-transparent  md:p-0 dark:text-white ":
+                  "block py-2 pl-3 pr-4  rounded md:bg-transparent  md:p-0 dark:text-white md:hover:text-indigo-700 ":
                     true,
-                  "text-indigo-500": activeItem === "home",
+                  "sm:text-indigo-500 md:hover:text-white":
+                    activeItem === "home",
                 })}
                 aria-current="page"
                 onClick={() => handleClick("home")}
               >
                 Home
-              </a>
+              </Link>
             </li>
 
             {/* Products */}
             <li>
-              <a
-                href="#"
+              <Link
+                href="/products"
                 className={cn({
-                  "block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0 dark:text-white ":
+                  "block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0 dark:text-white  md:hover:text-indigo-700":
                     true,
-                  "text-indigo-500": activeItem === "products",
+                  "sm:text-indigo-500 md:hover:text-white":
+                    activeItem === "products",
                 })}
                 onClick={() => handleClick("products")}
               >
                 Products
-              </a>
+              </Link>
             </li>
             {/* Categories */}
             <li>
               <a
-                href="#"
+                href="/categories"
                 className={cn({
-                  "block py-2 pl-3 pr-4 text-white rounded md:bg-transparent  md:p-0 dark:text-white ":
+                  "block py-2 pl-3 pr-4 text-white rounded md:bg-transparent  md:p-0 dark:text-white  md:hover:text-indigo-700":
                     true,
-                  "text-indigo-500": activeItem === "categories",
+                  "sm:text-indigo-500 md:hover:text-white":
+                    activeItem === "categories",
                 })}
                 onClick={() => handleClick("categories")}
               >
@@ -110,7 +113,7 @@ const Navbar = () => {
                 id="dropdownNavbar"
                 className={cn({
                   hidden: !isOpen,
-                  "z-100 absolute mt-5  font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-36 dark:bg-gray-900 dark:divide-gray-600":
+                  "z-1000000 absolute mt-5  font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-36 dark:bg-gray-900 dark:divide-gray-600":
                     true,
                 })}
               >

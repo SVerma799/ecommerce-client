@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Navbar from "./components/Navbar";
 
 export default function Document() {
   return (
@@ -9,6 +10,7 @@ export default function Document() {
         rel="stylesheet"
       />
       <body className="font-signika">
+        <Navbar />
         <Main />
         <NextScript />
       </body>
